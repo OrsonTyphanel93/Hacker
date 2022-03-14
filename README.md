@@ -130,8 +130,6 @@ class Memory:
 
 
 
-
-
         class Actor(nn.Module):
     def __init__(self, state_dim, action_dim):
         super(Actor, self).__init__()
@@ -144,10 +142,6 @@ class Memory:
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         return F.softmax(self.fc3(x), dim=-1)
-
-
-
-
 
 
         class Critic(nn.Module):
@@ -164,10 +158,6 @@ class Memory:
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         return self.fc3(x)
-
-
-
-
 
 
         class COMA:
@@ -291,8 +281,7 @@ class Memory:
     return np.convolve(x, np.ones((N,)) / N, mode='valid')
 
 
-    agent_num = 2
-
+agent_num = 2
 state_dim = 2
 action_dim = 5
 
@@ -316,16 +305,11 @@ Image.register_extensions = register_extensions
 
 def load_img_id(ds, idx): return np.array(PIL.Image.open(PATH+ds.fnames[idx]))
 
-
-
-
 env = wrap_env(gym.make("Switch2-v0"))
 obs = env.reset()
 
 episode_reward = 0
 episodes_reward = []
-
-
 
 
 n_episodes = 10000
@@ -358,11 +342,7 @@ while episode < n_episodes:
           print(f"episode: {episode}, average reward: {sum(episodes_reward[-100:]) / 100}")
 
 
-
-
-
-
-          plt.plot(moving_average(episodes_reward, 100))
+plt.plot(moving_average(episodes_reward, 100))
 plt.title('Learning curve')
 plt.xlabel("Episodes")
 plt.ylabel("Reward")
