@@ -271,14 +271,13 @@ class Memory:
 
 
 
-        #Training Loop
+  #Training Loop
 
+import matplotlib.pyplot as plt
+import numpy as np
 
-    import matplotlib.pyplot as plt
-    import numpy as np
-
-    def moving_average(x, N):
-    return np.convolve(x, np.ones((N,)) / N, mode='valid')
+def moving_average(x, N):
+return np.convolve(x, np.ones((N,)) / N, mode='valid')
 
 
 agent_num = 2
@@ -347,8 +346,6 @@ plt.title('Learning curve')
 plt.xlabel("Episodes")
 plt.ylabel("Reward")
 plt.show()
-
-
 
 
 env = wrap_env(gym.make("Switch2-v0"))
