@@ -89,13 +89,13 @@ def wrap_env(env):
   env = Monitor(env, './video', force=True)
   return env
 
+
 #COMA 
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
 from torch.distributions import Categorical
-
 
 
 class Memory:
@@ -128,7 +128,6 @@ class Memory:
         self.pi = [[] for _ in range(agent_num)]
         self.reward = []
         self.done = [[] for _ in range(agent_num)]
-
 
 
         class Actor(nn.Module):
@@ -257,6 +256,7 @@ class Memory:
             self.count += 1
 
         self.memory.clear()
+        
 
     def build_input_critic(self, agent_id, observations, actions):
         batch_size = len(observations)
@@ -268,6 +268,7 @@ class Memory:
         input_critic = torch.cat([ids, input_critic], dim=-1)
 
         return input_critic
+        
 
   #Training Loop
 
@@ -297,6 +298,7 @@ Image.register_extension = register_extension
 def register_extensions(id, extensions): 
   for extension in extensions: register_extension(id, extension)
 Image.register_extensions = register_extensions
+
 
 def load_img_id(ds, idx): return np.array(PIL.Image.open(PATH+ds.fnames[idx]))
 
