@@ -269,9 +269,6 @@ class Memory:
 
         return input_critic
 
-
-
-
   #Training Loop
 
 import matplotlib.pyplot as plt
@@ -291,9 +288,7 @@ lr_c = 0.005
 
 target_update_steps = 10
 
-
 agents = COMA(agent_num, state_dim, action_dim, lr_c, lr_a, gamma, target_update_steps)
-
 
 from PIL import Image
 
@@ -310,7 +305,6 @@ obs = env.reset()
 
 episode_reward = 0
 episodes_reward = []
-
 
 n_episodes = 10000
 episode = 0
@@ -341,13 +335,11 @@ while episode < n_episodes:
       if episode % 100 == 0:
           print(f"episode: {episode}, average reward: {sum(episodes_reward[-100:]) / 100}")
 
-
 plt.plot(moving_average(episodes_reward, 100))
 plt.title('Learning curve')
 plt.xlabel("Episodes")
 plt.ylabel("Reward")
 plt.show()
-
 
 env = wrap_env(gym.make("Switch2-v0"))
 obs_n = env.reset()
