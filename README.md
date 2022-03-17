@@ -27,8 +27,8 @@ Paper Presentation : Mila , University of Montreal
 Install my-project with npm
 
 ```bash
-  ! apt install python -m pip install --upgrade Pillow
-  ! apt install python3 -m pip install --upgrade Pillow
+! apt install python -m pip install --upgrade Pillow
+! apt install python3 -m pip install --upgrade Pillow
 
 
 !rm -rf /content/ma-gym  
